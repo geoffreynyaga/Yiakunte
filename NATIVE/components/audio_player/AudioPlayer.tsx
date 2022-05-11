@@ -4,7 +4,7 @@
  * Created Date: Tuesday, April 19th 2022, 6:41:10 pm
  * Author: Geoffrey Nyaga Kinyua ( <geoffrey@swiftlab.tech> )
  * -----
- * Last Modified: Tuesday April 19th 2022 6:41:10 pm
+ * Last Modified: Tuesday April 19th 2022 6:18:28 pm
  * Modified By:  Geoffrey Nyaga Kinyua ( <geoffrey@swiftlab.tech> )
  * -----
  * This file should not be copied and/or distributed without the express
@@ -87,66 +87,66 @@ const ICON_THROUGH_EARPIECE = "speaker-phone";
 const ICON_THROUGH_SPEAKER = "speaker";
 
 const ICON_PLAY_BUTTON = new Icon(
-  require("../assets/images/player/play_button.png"),
+  require("../../assets/images/player/play_button.png"),
   24,
   24
 );
 
 const ICON_PAUSE_BUTTON = new Icon(
-  require("../assets/images/player/pause_button.png"),
+  require("../../assets/images/player/pause_button.png"),
   34,
   51
 );
 const ICON_STOP_BUTTON = new Icon(
-  require("../assets/images/player/stop_button.png"),
+  require("../../assets/images/player/stop_button.png"),
   22,
   22
 );
 const ICON_FORWARD_BUTTON = new Icon(
-  require("../assets/images/player/forward_button.png"),
+  require("../../assets/images/player/forward_button.png"),
   33,
   25
 );
 const ICON_BACK_BUTTON = new Icon(
-  require("../assets/images/player/back_button.png"),
+  require("../../assets/images/player/back_button.png"),
   33,
   25
 );
 
 const ICON_LOOP_ALL_BUTTON = new Icon(
-  require("../assets/images/player/loop_all_button.png"),
+  require("../../assets/images/player/loop_all_button.png"),
   77,
   35
 );
 const ICON_LOOP_ONE_BUTTON = new Icon(
-  require("../assets/images/player/loop_one_button.png"),
+  require("../../assets/images/player/loop_one_button.png"),
   77,
   35
 );
 
 const ICON_MUTED_BUTTON = new Icon(
-  require("../assets/images/player/muted_button.png"),
+  require("../../assets/images/player/muted_button.png"),
   67,
   58
 );
 const ICON_UNMUTED_BUTTON = new Icon(
-  require("../assets/images/player/unmuted_button.png"),
+  require("../../assets/images/player/unmuted_button.png"),
   67,
   58
 );
 
 const ICON_TRACK_1 = new Icon(
-  require("../assets/images/player/track_1.png"),
+  require("../../assets/images/player/track_1.png"),
   166,
   5
 );
 const ICON_THUMB_1 = new Icon(
-  require("../assets/images/player/thumb_1.png"),
+  require("../../assets/images/player/thumb_1.png"),
   18,
   19
 );
 const ICON_THUMB_2 = new Icon(
-  require("../assets/images/player/thumb_2.png"),
+  require("../../assets/images/player/thumb_2.png"),
   15,
   19
 );
@@ -243,7 +243,7 @@ export default class AudioPlayerExample extends React.Component<
     (async () => {
       await Font.loadAsync({
         ...MaterialIcons.font,
-        "cutive-mono-regular": require("../assets/fonts/CutiveMono-Regular.ttf"),
+        "cutive-mono-regular": require("../../assets/fonts/CutiveMono-Regular.ttf"),
       });
       this.setState({ fontLoaded: true });
     })();

@@ -6,7 +6,8 @@ import Constants from "expo-constants";
 import { useTailwind } from "tailwind-rn";
 import { FontAwesome } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
-export default function MainPageMenuComponent() {
+
+export default function MainPageMenuComponent({ navigation }) {
   const tailwind = useTailwind();
 
   return (
@@ -32,7 +33,7 @@ export default function MainPageMenuComponent() {
       >
         <Text
           style={tailwind(
-            "text-3xl tracking-wider font-bolder text-center text-purple-900"
+            "text-3xl tracking-wider  text-center text-purple-900"
           )}
         >
           Yiakunte App
@@ -80,9 +81,7 @@ export default function MainPageMenuComponent() {
           >
             <Ionicons name="eye-outline" size={32} color="white" />
 
-            <Text style={tailwind("text-center text-white text-md")}>
-              Body Parts
-            </Text>
+            <Text style={tailwind("text-center text-white ")}>Body Parts</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
@@ -93,11 +92,14 @@ export default function MainPageMenuComponent() {
               justifyContent: "space-around",
               alignItems: "center",
             }}
+            //on press navigate
+
+            onPress={() => {
+              navigation.navigate("Animals");
+            }}
           >
             <Ionicons name="paw-outline" size={32} color="white" />
-            <Text style={tailwind("text-center text-white text-md ")}>
-              Animals
-            </Text>
+            <Text style={tailwind("text-center text-white  ")}>Animals</Text>
           </TouchableOpacity>
         </View>
         {/* row 2 */}
@@ -120,7 +122,7 @@ export default function MainPageMenuComponent() {
           >
             <Ionicons name="leaf-outline" size={32} color="white" />
 
-            <Text style={tailwind("text-center text-white text-md")}>
+            <Text style={tailwind("text-center text-white ")}>
               Trees & Environment
             </Text>
           </TouchableOpacity>
@@ -136,7 +138,7 @@ export default function MainPageMenuComponent() {
           >
             <Ionicons name="bonfire-outline" size={32} color="white" />
 
-            <Text style={tailwind("text-center text-white text-md")}>
+            <Text style={tailwind("text-center text-white ")}>
               Cultural Utility Items
             </Text>
           </TouchableOpacity>
@@ -161,9 +163,7 @@ export default function MainPageMenuComponent() {
           >
             <Ionicons name="library-outline" size={32} color="white" />
 
-            <Text style={tailwind("text-center text-white text-md")}>
-              Dictionary
-            </Text>
+            <Text style={tailwind("text-center text-white ")}>Dictionary</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
@@ -177,9 +177,7 @@ export default function MainPageMenuComponent() {
           >
             <Ionicons name="git-merge-outline" size={32} color="white" />
 
-            <Text style={tailwind("text-center text-white text-md")}>
-              Family Tree
-            </Text>
+            <Text style={tailwind("text-center text-white ")}>Family Tree</Text>
           </TouchableOpacity>
         </View>
         {/* row 4 */}
@@ -202,7 +200,7 @@ export default function MainPageMenuComponent() {
           >
             <Ionicons name="restaurant-outline" size={32} color="white" />
 
-            <Text style={tailwind("text-center text-white text-md")}>Food</Text>
+            <Text style={tailwind("text-center text-white ")}>Food</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
@@ -216,7 +214,7 @@ export default function MainPageMenuComponent() {
           >
             <Ionicons name="md-man-outline" size={32} color="white" />
 
-            <Text style={tailwind("text-center text-white text-md")}>
+            <Text style={tailwind("text-center text-white ")}>
               Chat the Meta-Human
             </Text>
           </TouchableOpacity>

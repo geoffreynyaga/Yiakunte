@@ -1,8 +1,7 @@
 import { StyleSheet } from "react-native";
 import React from "react";
 import { Text, View } from "react-native";
-import AudioPlayerComponent from "../components/AudioPlayer";
-import AudioPlayerExample from "../components/AudioPlayer.test";
+import AudioPlayerExample from "../components/audio_player/AudioPlayer";
 
 export default function AboutScreen() {
   return (

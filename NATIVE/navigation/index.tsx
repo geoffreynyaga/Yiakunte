@@ -20,11 +20,13 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import AboutScreen from "../screens/AboutScreen";
 import {
+  AnimalStackParamList,
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import AnimalsListComponent from "../components/animals";
 
 export default function Navigation() {
   return (
@@ -39,6 +41,27 @@ export default function Navigation() {
  * https://reactnavigation.org/docs/modal
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const AnimalStack = createNativeStackNavigator<AnimalStackParamList>();
+
+function AnimalNavigator() {
+  return (
+    <AnimalStack.Navigator
+      initialRouteName="Main"
+      // screenOptions={{
+      //   headerShown: false,
+      // }}
+    >
+      <AnimalStack.Screen
+        name="Main"
+        component={MainPageMenuComponent}
+        options={{ title: "Yiakunte App", headerShown: false }}
+      />
+
+      <AnimalStack.Screen name="Animals" component={AnimalsListComponent} />
+    </AnimalStack.Navigator>
+  );
+}
 
 function RootNavigator() {
   return (
@@ -71,14 +94,14 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="About"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: "blue",
       }}
     >
       <BottomTab.Screen
         name="Home"
-        component={MainPageMenuComponent}
+        component={AnimalNavigator}
         options={({ navigation }: RootTabScreenProps<"Home">) => ({
           title: "Yiakunte App",
           headerShown: false,

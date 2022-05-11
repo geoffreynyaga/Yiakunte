@@ -29,6 +29,11 @@ export type RootTabParamList = {
   Home: undefined;
   About: undefined;
 };
+export type AnimalStackParamList = {
+  Animals: undefined;
+  AnimalDetail: undefined;
+  Main: undefined;
+};
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   CompositeScreenProps<

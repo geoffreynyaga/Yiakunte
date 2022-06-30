@@ -29,15 +29,10 @@ import {
 } from "react-native";
 
 import { useTailwind } from "tailwind-rn";
+import { YiakuListItem } from "../../types";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
-
-interface Animal {
-  english_name: string;
-  yiakunte: string;
-  image: string | null;
-}
 
 const Item = ({
   english_name,
@@ -99,7 +94,7 @@ const Item = ({
 function AnimalsListComponent() {
   const tailwind = useTailwind();
 
-  const animals: Animal[] = [
+  const animals: YiakuListItem[] = [
     {
       english_name: "Aard Vark",
       yiakunte: "Dhawaaqida",

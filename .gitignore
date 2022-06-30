@@ -128,3 +128,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+assets/images/animals/
+assets/images/family tree/

@@ -25,6 +25,7 @@ import FamilyTreeListComponent from "../components/family_tree";
  */
 import { FontAwesome } from "@expo/vector-icons";
 import FoodListComponent from "../components/food";
+import ForumCreate from "../components/forum/ForumCreate";
 import ForumDetail from "../components/forum/ForumDetail";
 import ForumLandingScreen from "../components/forum/ForumLanding";
 import LinkingConfiguration from "./LinkingConfiguration";
@@ -67,6 +68,7 @@ function ForumNavigator() {
         options={{ title: "Yiakunte App Forum", headerShown: false }}
       />
       <ForumStack.Screen name="ForumDetail" component={ForumDetail} />
+      <ForumStack.Screen name="ForumCreate" component={ForumCreate} />
     </ForumStack.Navigator>
   );
 }
@@ -134,7 +136,7 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: "blue",
+        tabBarActiveTintColor: "#47d6b6",
       }}
     >
       <BottomTab.Screen

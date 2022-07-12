@@ -199,13 +199,16 @@ class SignUpConfirmationAPIView(APIView):
                 user.active = True
                 user.save()
 
-                django_login(request, user)
-                token, created = Token.objects.get_or_create(user=user)
+                try:
+                    django_login(request, user)
+                    token, created = Token.objects.get_or_create(user=user)
 
-                return Response({"token": token.key}, status=200)
+                    return Response({"token": token.key}, status=200)
+                except Exception as e:
+                    print(e,"error getting token")
 
-        except:
-            print("user not found")
+        except Exception as e:
+            print(e,"user not found")
             return Response(
                 {"Response_Code": 1, "ResultDesc": "User Not Found"}, status=200
             )

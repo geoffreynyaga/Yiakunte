@@ -13,48 +13,201 @@
  * Copyright (c) 2022 Swift Lab Limited.
  */
 
+import * as SecureStore from "expo-secure-store";
+
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
-import { Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import {
+  Image,
+  Keyboard,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import React, { useEffect, useRef, useState } from "react";
 import { Text, View } from "react-native";
+import { forumMessagesAPI, forumMessagesCreateAPI } from "../../api";
+import { useMutation, useQuery } from "react-query";
 
 import Constants from "expo-constants";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { forumMessagesAPI } from "../../api";
 import { useNavigation } from "@react-navigation/native";
-import { useQuery } from "react-query";
 import { useTailwind } from "tailwind-rn";
 
 export default function ForumDetail({ route, navigation }) {
   const [forums, setForums] = useState(null);
+  const [message, setMessage] = useState<null | string>(null);
+  const [token, setToken] = useState<null | string>(null);
 
   // get navigation params
   const { forum } = route.params;
   //console.log(forum, "Param Details");
 
   const tailwind = useTailwind();
+  const inputRef = useRef(null);
 
-  const { data, error, isLoading } = useQuery("forumMessages", () => {
-    return fetch(forumMessagesAPI(forum.id))
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data, "data");
-        return data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  });
+  useEffect(() => {
+    async function getToken() {
+      const token = await SecureStore.getItemAsync("userToken");
+      setToken(token);
+    }
+    getToken();
+  }, [token]);
+
+  const { data, error, isLoading } = useQuery(
+    `forumMessages-${forum.id}`,
+    () => {
+      return fetch(forumMessagesAPI(forum.id))
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data, "data");
+          return data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    {
+      refetchOnWindowFocus: true,
+      refetchOnMount: true,
+      refetchInterval: 5000,
+      retry: true,
+    }
+  );
+
+  const mutation = useMutation(
+    async (newPost) => {
+      try {
+        const res = await fetch(forumMessagesCreateAPI(forum.id), {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify({
+            message: message,
+            forum_id: forum.id,
+          }),
+        });
+        const data = await res.json();
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    {
+      onSuccess: () => {
+        alert("Message created");
+        setMessage(null);
+        Keyboard.dismiss();
+      },
+    }
+  );
 
   if (isLoading) {
-    return <Text>Loading...</Text>;
+    return (
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 34,
+            fontWeight: "bold",
+            color: "black",
+            textAlign: "center",
+          }}
+        >
+          Loading...
+        </Text>
+      </View>
+    );
   }
   if (error) {
     return <Text>Error!</Text>;
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          paddingHorizontal: 10,
+          position: "absolute",
+          bottom: 0,
+          right: 5,
+          left: 5,
+          height: 50,
+          zIndex: 99,
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          backgroundColor: "#fefef5",
+          paddingVertical: 4,
+        }}
+      >
+        <TextInput
+          placeholder="Enter your Reply"
+          ref={inputRef}
+          multiline
+          //   numberOfLines={4}
+          maxLength={280}
+          style={{
+            borderRadius: 30,
+            flex: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            shadowColor: "#000",
+            backgroundColor: "#fdf6f6",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 4,
+            width: "100%",
+            height: "100%",
+            paddingLeft: 10,
+          }}
+          onChangeText={(text) => setMessage(text)}
+        />
+        <TouchableOpacity
+          onPress={() => {
+            if (message) {
+              console.log(message, "message");
+              mutation.mutate();
+              setMessage(null);
+              Keyboard.dismiss();
+              inputRef?.current.clear();
+            }
+          }}
+          style={{
+            flex: 2,
+            justifyContent: "center",
+            alignItems: "center",
+            // shadowColor: "#000",
+            // backgroundColor: "#fdf6f6",
+            // shadowOffset: {
+            //   width: 0,
+            //   height: 2,
+            // },
+            // shadowOpacity: 0.25,
+            // shadowRadius: 3.84,
+            // elevation: 4,
+            width: "100%",
+            paddingLeft: 10,
+          }}
+        >
+          <FontAwesome5 name="paper-plane" size={30} color="#000" />
+        </TouchableOpacity>
+      </View>
+
       <ScrollView
         contentContainerStyle={{
           ...tailwind("flex"),
@@ -107,7 +260,7 @@ export default function ForumDetail({ route, navigation }) {
               >
                 {/* //Profile picture thumbnail */}
                 <Image
-                  source={require("../../assets/images/adaptive-icon.png")}
+                  source={{ uri: forum.created_by_profile_picture_thumbnail }}
                   style={{
                     borderWidth: 1,
                     borderColor: "#e760bf",
@@ -298,7 +451,9 @@ export default function ForumDetail({ route, navigation }) {
                       >
                         {/* //Profile picture thumbnail */}
                         <Image
-                          source={require("../../assets/images/adaptive-icon.png")}
+                          source={{
+                            uri: forumMessage.created_by_profile_picture_thumbnail,
+                          }}
                           style={{
                             borderWidth: 1,
                             borderColor: "green",
@@ -365,7 +520,7 @@ export default function ForumDetail({ route, navigation }) {
           ) : (
             <View
               style={{
-                ...tailwind("flex mx-2 py-2"),
+                ...tailwind("flex py-2"),
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
@@ -378,15 +533,13 @@ export default function ForumDetail({ route, navigation }) {
                   color: "#36162e",
                   fontSize: 28,
                   fontWeight: "800",
-                  paddingHorizontal: 4,
                   marginTop: 12,
-                  textAlign: "justify",
                   marginBottom: 10,
                 }}
               >
                 No Messages Yet
               </Text>
-              <Text>Be the first to respond..</Text>
+              <Text>Be the first to reply..</Text>
             </View>
           )}
         </View>

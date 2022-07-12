@@ -200,7 +200,7 @@ class SignUpConfirmationAPIView(APIView):
                 user.save()
 
                 try:
-                    django_login(request, user)
+                    django_login(request, user, backend="django.contrib.auth.backends.RemoteUserBackend")
                     token, created = Token.objects.get_or_create(user=user)
 
                     return Response({"token": token.key}, status=200)

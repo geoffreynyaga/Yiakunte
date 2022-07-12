@@ -1,1 +1,1 @@
-web: gunicorn Yiakunte.wsgi
+web: gunicorn Yiakunte.wsgi --log-file -

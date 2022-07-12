@@ -1,32 +1,40 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
-import { FontAwesome } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
-import MainPageMenuComponent from "../components/MainPageMenuComponent";
 
-import useColorScheme from "../hooks/useColorScheme";
-import ModalScreen from "../screens/ModalScreen";
-import NotFoundScreen from "../screens/NotFoundScreen";
-import AboutScreen from "../screens/AboutScreen";
 import {
   AnimalStackParamList,
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
-import LinkingConfiguration from "./LinkingConfiguration";
+import { ColorSchemeName, Pressable } from "react-native";
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from "@react-navigation/native";
+
+import AboutScreen from "../screens/AboutScreen";
 import AnimalsListComponent from "../components/animals";
+import BodyPartsListComponent from "../components/body_parts";
+import CulturalItemsListComponent from "../components/cultural";
+import FamilyTreeListComponent from "../components/family_tree";
+/**
+ * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
+ * https://reactnavigation.org/docs/getting-started
+ *
+ */
+import { FontAwesome } from "@expo/vector-icons";
+import FoodListComponent from "../components/food";
+import ForumDetail from "../components/forum/ForumDetail";
+import ForumLandingScreen from "../components/forum/ForumLanding";
+import LinkingConfiguration from "./LinkingConfiguration";
+import MainPageMenuComponent from "../components/MainPageMenuComponent";
+import ModalScreen from "../screens/ModalScreen";
+import NotFoundScreen from "../screens/NotFoundScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import useColorScheme from "../hooks/useColorScheme";
 
 export default function Navigation() {
   return (
@@ -43,6 +51,25 @@ export default function Navigation() {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AnimalStack = createNativeStackNavigator<AnimalStackParamList>();
+const ForumStack = createNativeStackNavigator<ForumStackParamList>();
+
+function ForumNavigator() {
+  return (
+    <ForumStack.Navigator
+      initialRouteName="ForumMain"
+      // screenOptions={{
+      //   headerShown: false,
+      // }}
+    >
+      <ForumStack.Screen
+        name="ForumMain"
+        component={ForumLandingScreen}
+        options={{ title: "Yiakunte App Forum", headerShown: false }}
+      />
+      <ForumStack.Screen name="ForumDetail" component={ForumDetail} />
+    </ForumStack.Navigator>
+  );
+}
 
 function AnimalNavigator() {
   return (
@@ -59,11 +86,22 @@ function AnimalNavigator() {
       />
 
       <AnimalStack.Screen name="Animals" component={AnimalsListComponent} />
+
+      <AnimalStack.Screen name="Food" component={FoodListComponent} />
+      <AnimalStack.Screen name="BodyParts" component={BodyPartsListComponent} />
+      <AnimalStack.Screen
+        name="FamilyTree"
+        component={FamilyTreeListComponent}
+      />
+      <AnimalStack.Screen
+        name="CulturalItems"
+        component={CulturalItemsListComponent}
+      />
     </AnimalStack.Navigator>
   );
 }
 
-function RootNavigator() {
+export function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -109,12 +147,30 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="About"
+        name="Audio"
         component={AboutScreen}
         options={{
-          title: "About",
-          tabBarIcon: ({ color }) => <TabBarIcon name="info" color={color} />,
+          title: "Audio",
+          tabBarIcon: ({ color }) => <TabBarIcon name="music" color={color} />,
         }}
+      />
+      <BottomTab.Screen
+        name="Forum"
+        component={ForumNavigator}
+        options={({ navigation }: RootTabScreenProps<"Forum">) => ({
+          title: "Yiaku Forum",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
+        })}
+      />
+      <BottomTab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={({ navigation }: RootTabScreenProps<"Profile">) => ({
+          title: "Your Profile",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+        })}
       />
     </BottomTab.Navigator>
   );

@@ -3,11 +3,12 @@
  * https://reactnavigation.org/docs/typescript/
  */
 
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import {
   CompositeScreenProps,
   NavigatorScreenParams,
 } from "@react-navigation/native";
+
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 declare global {
@@ -27,12 +28,22 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
 
 export type RootTabParamList = {
   Home: undefined;
-  About: undefined;
+  Audio: undefined;
+  Profile: undefined;
+  Forum: undefined;
 };
 export type AnimalStackParamList = {
   Animals: undefined;
   AnimalDetail: undefined;
   Main: undefined;
+  Food: undefined;
+  BodyParts: undefined;
+  FamilyTree: undefined;
+  CulturalItems: undefined;
+};
+export type ForumStackParamList = {
+  Forum: undefined;
+  ForumDetail: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
@@ -40,3 +51,10 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export interface YiakuListItem {
+  english_name: string;
+  yiakunte: string;
+  image: string | null;
+  audio: string | null;
+}

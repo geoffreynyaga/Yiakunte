@@ -78,6 +78,9 @@ export default function MainPageMenuComponent({ navigation }) {
               justifyContent: "space-around",
               alignItems: "center",
             }}
+            onPress={() => {
+              navigation.navigate("BodyParts");
+            }}
           >
             <Ionicons name="eye-outline" size={32} color="white" />
 
@@ -135,6 +138,9 @@ export default function MainPageMenuComponent({ navigation }) {
               justifyContent: "space-around",
               alignItems: "center",
             }}
+            onPress={() => {
+              navigation.navigate("CulturalItems");
+            }}
           >
             <Ionicons name="bonfire-outline" size={32} color="white" />
 
@@ -174,6 +180,9 @@ export default function MainPageMenuComponent({ navigation }) {
               justifyContent: "space-around",
               alignItems: "center",
             }}
+            onPress={() => {
+              navigation.navigate("FamilyTree");
+            }}
           >
             <Ionicons name="git-merge-outline" size={32} color="white" />
 
@@ -196,6 +205,9 @@ export default function MainPageMenuComponent({ navigation }) {
               flexDirection: "column",
               justifyContent: "space-around",
               alignItems: "center",
+            }}
+            onPress={() => {
+              navigation.navigate("Food");
             }}
           >
             <Ionicons name="restaurant-outline" size={32} color="white" />

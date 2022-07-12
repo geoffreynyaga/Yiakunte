@@ -6,13 +6,22 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal"
+
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": {
+        "autoIncrement": true
+      }
     },
-    "production": {}
+    "production": {
+      "android": {
+        "autoIncrement": true
+      }
+    }
   },
   "submit": {
     "production": {}
   }
+
 }

@@ -15,6 +15,9 @@
 # Copyright (c) 2022 Swift Lab Limited.                                          #
 ##################################################################################
 
+import base64
+import profile
+from tempfile import NamedTemporaryFile
 from django.conf import settings
 from django.contrib.auth import authenticate as django_authenticate
 from django.contrib.auth import get_user_model
@@ -200,15 +203,19 @@ class SignUpConfirmationAPIView(APIView):
                 user.save()
 
                 try:
-                    django_login(request, user, backend="django.contrib.auth.backends.RemoteUserBackend")
+                    django_login(
+                        request,
+                        user,
+                        backend="django.contrib.auth.backends.RemoteUserBackend",
+                    )
                     token, created = Token.objects.get_or_create(user=user)
 
                     return Response({"token": token.key}, status=200)
                 except Exception as e:
-                    print(e,"error getting token")
+                    print(e, "error getting token")
 
         except Exception as e:
-            print(e,"user not found")
+            print(e, "user not found")
             return Response(
                 {"Response_Code": 1, "ResultDesc": "User Not Found"}, status=200
             )
@@ -225,3 +232,72 @@ class UserProfileDetailAPIView(RetrieveAPIView):
 
     def get_object(self):
         return self.request.user.userprofile
+
+
+class UserProfileUpdateAPIView(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = [
+        TokenAuthentication,
+    ]
+
+    def post(self, request):
+        print(request.data, "this should be request.data")
+        """
+        <QueryDict: {'first_name': ['Geoffrey'], 'last_name': ['Nyaga'], 'image': [<InMemoryUploadedFile: image (image/jpg)>]}>
+        """
+        # extract data from querydict
+        first_name = request.data["first_name"]
+        last_name = request.data["last_name"]
+
+        # try:
+        #     image = request.data["image"]
+        #     print(image, "this should be image")
+        #     print(type(image), "this should be type image")
+        #     print(image.content_type, "this should be image content_type")
+        #     print(image.size, "this should be image size")
+        #     print(image.name, "this should be image name")
+
+        #     # save image to userprofile
+        #     userprofile = request.user.userprofile
+        #     print(userprofile, "this should be userprofile")
+        #     userprofile.profile_pic = image
+        #     userprofile.save()
+        # except:
+        #     pass
+
+        try:
+            profile_picture = request.data["image"]
+        except Exception as e:
+            print(e, "error getting image")
+            profile_picture = None
+
+        print(profile_picture, "this should be profile_picture")
+
+        try:
+            user = request.user
+            print(user, "this should be user")
+            if first_name != None and len(first_name) > 0:
+                user.first_name = first_name
+            if last_name != None and len(last_name) > 0:
+                user.last_name = last_name
+            if profile_picture:
+                print("profile picture is not none")
+
+                try:
+                    user.userprofile.profile_pic = profile_picture
+                    user.userprofile.save()
+                except Exception as e:
+                    print(e, "error in profile_picture")
+
+            user.save()
+
+            return Response(
+                {"Response_Code": 0, "ResultDesc": "Profile Updated"}, status=200
+            )
+
+        except Exception as e:
+            print(e, "Error updating profile")
+            return Response(
+                {"Response_Code": 1, "ResultDesc": "Error updating profile"},
+                status=200,
+            )

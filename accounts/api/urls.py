@@ -24,6 +24,7 @@ from accounts.api.views import (
     SignUpAPIView,
     SignUpConfirmationAPIView,
     UserProfileDetailAPIView,
+    UserProfileUpdateAPIView,
 )
 
 urlpatterns = [
@@ -38,5 +39,10 @@ urlpatterns = [
         "user-profile/",
         UserProfileDetailAPIView.as_view(),
         name="user-profile-detail",
+    ),
+    path(
+        "user-profile/update/",
+        UserProfileUpdateAPIView.as_view(),
+        name="user-profile-update",
     ),
 ]

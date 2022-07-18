@@ -16,7 +16,6 @@
 ##################################################################################
 
 
-from configparser import NoSectionError
 from forums.models import Forum, ForumMessage
 from rest_framework import serializers
 from django.contrib.humanize.templatetags.humanize import (
@@ -37,7 +36,7 @@ class ForumSerializer(serializers.ModelSerializer):
             print(obj.created_by.userprofile.profile_pic, "waddup")
             if obj.created_by.userprofile.profile_pic:
                 return self.context["request"].build_absolute_uri(
-                    obj.created_by.userprofile.profile_pic_thumbnail.url
+                    obj.created_by.userprofile.profile_pic.url
                 )
             else:
                 return None

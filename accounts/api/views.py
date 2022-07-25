@@ -15,9 +15,7 @@
 # Copyright (c) 2022 Swift Lab Limited.                                          #
 ##################################################################################
 
-import base64
-import profile
-from tempfile import NamedTemporaryFile
+
 from django.conf import settings
 from django.contrib.auth import authenticate as django_authenticate
 from django.contrib.auth import get_user_model
@@ -78,32 +76,35 @@ class SignUpAPIView(CreateAPIView):
         if serializer.is_valid():
             try:
                 phone_number = request.data["phone_number"]
-                from accounts.models import SignUpPassword
-                import random
 
-                rand_password = random.randint(1000, 9999)
-                print("this is the random password")
+                if "+254" in phone_number:
+                    import random
 
-                SignUpPassword.objects.create(
-                    unregistered_user=phone_number, password=rand_password
-                )
+                    from accounts.models import SignUpPassword
 
-                from accounts.sms import send_sms
+                    rand_password = random.randint(1000, 9999)
+                    print("this is the random password")
 
-                message = f"{rand_password} use this code to confirm your Yiakunte Registration"
-                print(message, "should be message ")
+                    SignUpPassword.objects.create(
+                        unregistered_user=phone_number, password=rand_password
+                    )
 
-                if not settings.IS_TESTING:
-                    print("pytest is not running")
+                    from accounts.sms import send_sms
 
-                    try:
-                        x = send_sms.SMS().send_sms_sync(phone_number, message)
+                    message = f"{rand_password} use this code to confirm your Yiakunte Registration"
+                    print(message, "should be message ")
 
-                        print(x, "should be sent sms ")
-                    except Exception as e:
-                        print(e, "error in sending confirmation message")
-                else:
-                    print("pytest running, hence we are not running sms client")
+                    if not settings.IS_TESTING:
+                        print("pytest is not running")
+
+                        try:
+                            x = send_sms.SMS().send_sms_sync(phone_number, message)
+
+                            print(x, "should be sent sms ")
+                        except Exception as e:
+                            print(e, "error in sending confirmation message")
+                    else:
+                        print("pytest running, hence we are not running sms client")
 
             except:
                 print("cannot create confirmation password")
@@ -135,13 +136,46 @@ class SignUpAPIView(CreateAPIView):
                 user_obj.set_password(password)
 
                 print(user_obj, "this should be the create user_obj")
-
                 user_obj.save()
+
+                if not "+254" in phone_number:
+                    try:
+
+                        user_obj.active = True
+                        user_obj.save()
+                        django_login(
+                            request,
+                            user_obj,
+                            backend="django.contrib.auth.backends.RemoteUserBackend",
+                        )
+                        token, created = Token.objects.get_or_create(user=user_obj)
+                        print(token, "this should be the create token")
+
+                        return Response(
+                            {
+                                "token": token.key,
+                                "Response_Code": 0,
+                                "ResultDesc": "Initial registration successful",
+                                "is_kenyan": True if "+254" in phone_number else False,
+                            },
+                            status=200,
+                        )
+                    except Exception as e:
+                        print(e, "error in creating user")
+                        return Response(
+                            {
+                                "Response_Code": 1,
+                                "ResultDesc": "Cannot create user",
+                            },
+                            status=200,
+                        )
+
                 return Response(
                     {
                         "Response_Code": 0,
                         "ResultDesc": "Initial registration successful",
                         "initial_otp": rand_password,
+                        "is_kenyan": True if "+254" in phone_number else False,
                     },
                     status=200,
                 )

@@ -57,4 +57,5 @@ export interface YiakuListItem {
   yiakunte: string;
   image: string | null;
   audio: string | null;
+  active: boolean;
 }

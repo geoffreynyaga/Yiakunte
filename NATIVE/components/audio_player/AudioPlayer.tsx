@@ -13,7 +13,9 @@
  * Copyright (c) 2022 Swift Lab Limited.
  */
 
-import React from "react";
+import * as Font from "expo-font";
+
+import { Audio, Video } from "expo-av";
 import {
   Dimensions,
   Image,
@@ -23,15 +25,148 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
-import { Asset } from "expo-asset";
-import { Audio, Video } from "expo-av";
-import * as Font from "expo-font";
 
+import { Asset } from "expo-asset";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useLinkProps } from "@react-navigation/native";
+import React from "react";
 import { Sound } from "expo-av/build/Audio";
+import { YiakuListItem } from "../../types";
+import { useLinkProps } from "@react-navigation/native";
+
 //create a class with types
 
+const REACT_APP_BASE_S3_URL =
+  "https://yiakunte.s3.eu-central-1.amazonaws.com/media/";
+
+const s3_base_url = REACT_APP_BASE_S3_URL;
+const images_app_folder = "images/body_parts";
+const audio_app_folder = "audio/body_parts";
+
+const image_fixed_url = s3_base_url + images_app_folder;
+const audio_fixed_url = s3_base_url + audio_app_folder;
+
+const animals: YiakuListItem[] = [
+  {
+    english_name: "Head",
+    yiakunte: "mete",
+    image: `${image_fixed_url}/head.jpg`,
+    audio: `${audio_fixed_url}/head.wav`,
+  },
+  {
+    english_name: "Chest",
+    yiakunte: "Sheu",
+    image: `${image_fixed_url}/chest.jpg`,
+    audio: `${audio_fixed_url}/chest.wav`,
+  },
+  {
+    english_name: "Eyes",
+    yiakunte: "Ila",
+    image: `${image_fixed_url}/eyes.jpg`,
+    audio: `${audio_fixed_url}/eyes.wav`,
+  },
+  {
+    english_name: "Body",
+    yiakunte: "Naxap",
+    image: `${image_fixed_url}/body.jpg`,
+    audio: `${audio_fixed_url}/body.wav`,
+  },
+  {
+    english_name: "Neck",
+    yiakunte: "Tokoro",
+    image: `${image_fixed_url}/neck.jpg`,
+    audio: `${audio_fixed_url}/neck.wav`,
+  },
+  {
+    english_name: "Shoulder",
+    yiakunte: "Kelege",
+    image: `${image_fixed_url}/shoulder.jpg`,
+    audio: `${audio_fixed_url}/shoulder.wav`,
+  },
+  {
+    english_name: "Armpit",
+    yiakunte: "Qoiqola",
+    image: `${image_fixed_url}/armpit.jpg`,
+    audio: `${audio_fixed_url}/armpit.wav`,
+  },
+  {
+    english_name: "Hand",
+    yiakunte: "Tike",
+    image: `${image_fixed_url}/hand.jpg`,
+    audio: `${audio_fixed_url}/hand.wav`,
+  },
+  {
+    english_name: "Toe",
+    yiakunte: "Quipi",
+    image: `${image_fixed_url}/toe.jfif`,
+    audio: `${audio_fixed_url}/toe.wav`,
+  },
+  {
+    english_name: "Nails",
+    yiakunte: "Segel ",
+    image: `${image_fixed_url}/nails.jpg`,
+    audio: `${audio_fixed_url}/nails.wav`,
+  },
+  {
+    english_name: "Stomach",
+    yiakunte: "Ire",
+    image: `${image_fixed_url}/stomach.jpg`,
+    audio: `${audio_fixed_url}/stomach.wav`,
+  },
+  {
+    english_name: "Leg",
+    yiakunte: "Miji",
+    image: `${image_fixed_url}/leg.jpg`,
+    audio: `${audio_fixed_url}/leg.wav`,
+  },
+  {
+    english_name: "Thigh",
+    yiakunte: "Ikut",
+    image: `${image_fixed_url}/thigh.jpg`,
+    audio: `${audio_fixed_url}/thigh.wav`,
+  },
+  {
+    english_name: "back",
+    yiakunte: "Tulu",
+    image: `${image_fixed_url}/back.jpg`,
+    audio: `${audio_fixed_url}/back.wav`,
+  },
+  {
+    english_name: "intestines",
+    yiakunte: "Rehmo",
+    image: `${image_fixed_url}/intestines.jpg`,
+    audio: `${audio_fixed_url}/intestines.wav`,
+  },
+  {
+    english_name: "Muscle",
+    yiakunte: "T'ebe",
+    image: `${image_fixed_url}/muscle.jpg`,
+    audio: `${audio_fixed_url}/muscle.wav`,
+  },
+  {
+    english_name: "Wrist",
+    yiakunte: "T'oso",
+    image: `${image_fixed_url}/wrist.jpg`,
+    audio: `${audio_fixed_url}/wrist.wav`,
+  },
+  {
+    english_name: "bone",
+    yiakunte: "Mucu",
+    image: `${image_fixed_url}/bone.jpg`,
+    audio: `${audio_fixed_url}/bone.wav`,
+  },
+  {
+    english_name: "skin",
+    yiakunte: "Rrege",
+    image: `${image_fixed_url}/skin.jpg`,
+    audio: `${audio_fixed_url}/skin.wav`,
+  },
+  {
+    english_name: "heart",
+    yiakunte: "Ce'e",
+    image: `${image_fixed_url}/heart.jpg`,
+    audio: `${audio_fixed_url}/heart.wav`,
+  },
+];
 class Icon {
   module: any;
   width: any;
@@ -48,14 +183,22 @@ class PlaylistItem {
   name: any;
   uri: any;
   isVideo: any;
-  constructor(name: string, uri: string, isVideo: boolean) {
+  constructor(name: string, uri: string | null, isVideo: boolean) {
     this.name = name;
     this.uri = uri;
     this.isVideo = isVideo;
   }
 }
 
-const PLAYLIST = [
+const PLAYLIST = [];
+// for loop
+for (let i = 0; i < animals.length; i++) {
+  PLAYLIST.push(
+    new PlaylistItem(animals[i].english_name, animals[i].audio, false)
+  );
+}
+
+const OLD_PLAYLIST = [
   new PlaylistItem(
     "Comfort Fit - “Sorry”",
     "https://s3.amazonaws.com/exp-us-standard/audio/playlist-example/Comfort_Fit_-_03_-_Sorry.mp3",

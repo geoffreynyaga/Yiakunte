@@ -18,6 +18,7 @@ import * as React from "react";
 import * as SecureStore from "expo-secure-store";
 
 import {
+  ActivityIndicator,
   Button,
   Dimensions,
   Image,
@@ -31,7 +32,9 @@ import {
 import { loginAPI, signUpAPI, signUpValidateAPI } from "../api";
 
 import { AuthContext } from "./AuthContext";
-import OTPInputView from "@twotalltotems/react-native-otp-input";
+import OTPTextView from "react-native-otp-textinput";
+
+// import OTPInputView from "@twotalltotems/react-native-otp-input";
 
 export default function SignUpScreen({ navigation }) {
   // console.log(navigation, "navigation");
@@ -44,6 +47,8 @@ export default function SignUpScreen({ navigation }) {
   const [otpFinal, setOTPFinal] = React.useState(null);
 
   const [verifying, setVerifying] = React.useState(false);
+
+  const [isSigningUp, setIsSigningUp] = React.useState(false);
 
   const { setToken } = React.useContext(AuthContext);
   const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -84,7 +89,15 @@ export default function SignUpScreen({ navigation }) {
           ResultDesc: "Initial registration successful",
         };
 
-        if (data.ResultDesc === "Initial registration successful") {
+        if (
+          data.ResultDesc === "Initial registration successful" &&
+          data.token
+        ) {
+          // set otp go to validation
+          // setOTPFinal(data.initial_otp);
+          await SecureStore.setItemAsync("userToken", data.token);
+          setToken(data.token);
+        } else if (data.ResultDesc === "Initial registration successful") {
           // set otp go to validation
           setOTP(data.initial_otp);
         } else if (data.non_field_errors) {
@@ -124,7 +137,7 @@ export default function SignUpScreen({ navigation }) {
 
         if (data.token) {
           // set otp go to validation
-          setOTPFinal(data.initial_otp);
+          // setOTPFinal(data.initial_otp);
           await SecureStore.setItemAsync("userToken", data.token);
           setToken(data.token);
         } else if (data.ResultDesc == "PasswordMissmatch") {
@@ -138,6 +151,19 @@ export default function SignUpScreen({ navigation }) {
           alert("Something went wrong");
         }
       });
+  };
+
+  const handleOTPChange = (text) => {
+    console.log(text, "this is text");
+    console.log(otpFinal, "this is otpFinal");
+    console.log(text.length, "this is text.length");
+
+    if (otpFinal !== null && text.length === 4) {
+      alert("OTP is correct");
+      setVerifying(true);
+
+      signUpValidate(text);
+    }
   };
 
   return otp !== null ? (
@@ -183,7 +209,7 @@ export default function SignUpScreen({ navigation }) {
           // borderColor: "#feee",
         }}
       >
-        <OTPInputView
+        {/* <OTPInputView
           pinCount={4}
           autoFocusOnLoad
           onCodeFilled={(code) => {
@@ -193,7 +219,25 @@ export default function SignUpScreen({ navigation }) {
 
             signUpValidate(code);
           }}
-          keyboardAppearance="dark"
+          // keyboardAppearance="dark"
+        /> */}
+
+        <OTPTextView
+          // ref={(e) => (this.input1 = e)}
+          containerStyle={{ margin: 20 }}
+          handleTextChange={(text) => {
+            setOTPFinal(text);
+
+            handleOTPChange(text);
+          }}
+          inputCount={4}
+          textInputStyle={{
+            // fontSize: 20,
+            fontWeight: "bold",
+            color: "#fefefe",
+          }}
+          keyboardType="numeric"
+          autoFocusOnLoad={false}
         />
 
         {verifying ? (
@@ -354,6 +398,7 @@ export default function SignUpScreen({ navigation }) {
             backgroundColor: username ? "#dee1ec" : "#f5eded",
             paddingLeft: 10,
           }}
+          keyboardType="phone-pad"
           // autoFocus
         />
         <Text
@@ -446,7 +491,10 @@ export default function SignUpScreen({ navigation }) {
         <TouchableOpacity
           // title="Sign up"
 
-          onPress={() => signUp()}
+          onPress={() => {
+            setIsSigningUp(true);
+            signUp();
+          }}
           style={{
             margin: 30,
             marginBottom: 5,
@@ -468,7 +516,11 @@ export default function SignUpScreen({ navigation }) {
               textAlign: "center",
             }}
           >
-            Sign Me Up!
+            {isSigningUp ? (
+              <ActivityIndicator size="small" color="#252A37" />
+            ) : (
+              "Sign Me Up!"
+            )}
           </Text>
         </TouchableOpacity>
       </View>

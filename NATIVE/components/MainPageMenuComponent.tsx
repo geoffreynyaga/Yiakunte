@@ -1,11 +1,12 @@
 import * as WebBrowser from "expo-web-browser";
+
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
 import { Text, View } from "react-native";
+
 import Constants from "expo-constants";
-import { useTailwind } from "tailwind-rn";
-import { FontAwesome } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import React from "react";
+import { useTailwind } from "tailwind-rn";
 
 export default function MainPageMenuComponent({ navigation }) {
   const tailwind = useTailwind();

@@ -43,7 +43,7 @@ export default function ForumLandingScreen({ navigation }) {
     {
       refetchOnWindowFocus: true,
       refetchOnMount: true,
-      refetchInterval: 5000,
+      // refetchInterval: 5000,
       retry: true,
       retryDelay: 0,
     }
@@ -226,6 +226,7 @@ export default function ForumLandingScreen({ navigation }) {
                           width: 50,
                           borderRadius: 25,
                         }}
+                        resizeMode="cover"
                       />
                     </View>
                     <View

@@ -13,9 +13,9 @@
  * Copyright (c) 2022 Swift Lab Limited.
  */
 
-const emulator = "http://10.0.2.2:8000";
-const production = "https://";
-const development = "http://127.0.0.1:8000";
+const emulator: string = "http://10.0.2.2:8000";
+const production: string = "https://yiakunte.herokuapp.com";
+const development: string = "http://192.168.100.8:8000";
 
 const active_server = emulator;
 
@@ -27,13 +27,13 @@ export const signUpValidateAPI =
 export const userProfileDetailAPI =
   active_server + "/api/accounts/user-profile/";
 
-// export const userProfileDetailAPI = (userPk: string) =>
-//   `${active_server}/api/accounts/user-profile/${userPk}/`;
+export const userProfileUpdateAPI =
+  active_server + "/api/accounts/user-profile/update/";
 
-export const forumMessagesAPI = (forumID: string) =>
+export const forumMessagesAPI = (forumID: string): string =>
   `${active_server}/api/forums/${forumID}/`;
 
 export const forumsListAPI = active_server + "/api/forums/";
 export const forumCreateAPI = active_server + "/api/forums/create/";
-export const forumMessagesCreateAPI = (forumID: string) =>
+export const forumMessagesCreateAPI = (forumID: string): string =>
   `${active_server}/api/forums/${forumID}/create-reply/`;

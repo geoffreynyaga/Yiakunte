@@ -31,7 +31,6 @@ import AudioPlayerComponent from "../audio_player/AudioPlayerOld";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { YiakuListItem } from "../../types";
-import { useTailwind } from "tailwind-rn";
 
 // import { REACT_APP_BASE_S3_URL } from "@env";
 
@@ -43,11 +42,13 @@ const Item = ({
   yiakunte_name,
   image,
   audio,
+  active,
 }: {
   english_name: string;
   yiakunte_name: string;
   image: string | null;
   audio: string | null;
+  active: boolean;
 }) => (
   <View
     style={{
@@ -57,8 +58,6 @@ const Item = ({
       marginBottom: 0.04 * SCREEN_HEIGHT,
       alignSelf: "center",
       flexDirection: "column",
-      // backgroundColor: "red",
-      // flex: 1,
       justifyContent: "space-between",
       paddingTop: 10,
     }}
@@ -96,39 +95,38 @@ const Item = ({
       )}
     </View>
     {/* Play */}
-    <TouchableOpacity
-      style={{
-        flex: 2,
-        paddingBottom: 0,
-        marginBottom: 0,
-        borderWidth: StyleSheet.hairlineWidth,
-        // borderColor: "#ccd7ff",
-        borderColor: "black",
-
-        borderRadius: 10,
-        marginHorizontal: 4,
-      }}
-    >
-      <View
+    {active && audio !== null && audio !== "" ? (
+      <TouchableOpacity
         style={{
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          // backgroundColor: "#fff4e3",
-          // paddingVertical: 10,
-          height: "100%",
+          flex: 2,
+          paddingBottom: 0,
+          marginBottom: 0,
+          borderWidth: StyleSheet.hairlineWidth,
+          // borderColor: "#ccd7ff",
+          borderColor: "black",
+
+          borderRadius: 10,
+          marginHorizontal: 4,
         }}
       >
-        {/* <Ionicons name="ios-play" size={40} color="#e035cf" /> */}
-        <AudioPlayerComponent audioUrl={audio} />
-      </View>
-    </TouchableOpacity>
+        <View
+          style={{
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <AudioPlayerComponent audioUrl={audio} />
+        </View>
+      </TouchableOpacity>
+    ) : (
+      <View style={{ flex: 2, paddingBottom: 0, marginBottom: 0 }} />
+    )}
   </View>
 );
 
 function BodyPartsListComponent() {
-  const tailwind = useTailwind();
-
   const REACT_APP_BASE_S3_URL =
     "https://yiakunte.s3.eu-central-1.amazonaws.com/media/";
 
@@ -268,6 +266,7 @@ function BodyPartsListComponent() {
       yiakunte_name={item.yiakunte}
       image={item.image}
       audio={item.audio}
+      active={true}
     />
   );
 

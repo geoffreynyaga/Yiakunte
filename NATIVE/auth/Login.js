@@ -20,16 +20,17 @@ import {
   Button,
   Dimensions,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
+import { forumsListAPI, loginAPI } from "../api";
 
 import { AuthContext } from "./AuthContext";
-import OTPInputView from "@twotalltotems/react-native-otp-input";
-import { loginAPI } from "../api";
+import { useQuery } from "react-query";
 
 export default function LoginScreen({ navigation }) {
   // console.log(navigation, "navigation");
@@ -88,8 +89,39 @@ export default function LoginScreen({ navigation }) {
       });
   };
 
+  const { data, error, isLoading } = useQuery(
+    "forums",
+    async () => {
+      try {
+        const res = await fetch(forumsListAPI);
+        const data = await res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    {
+      refetchOnWindowFocus: true,
+      refetchOnMount: true,
+      // refetchInterval: 4000,
+      retry: true,
+      retryDelay: 2000,
+    }
+  );
+
+  const handleAnonymousUser = async () => {
+    await SecureStore.setItemAsync("userToken", "anonymous");
+    setToken("anonymous");
+  };
+
   return (
-    <View
+    <ScrollView
+      contentContainerStyle={{
+        flex: 1,
+        flexDirection: "column",
+        backgroundColor: "#252A37",
+        justifyContent: "space-between",
+      }}
       style={{ flex: 1, flexDirection: "column", backgroundColor: "#252A37" }}
     >
       <View
@@ -170,7 +202,8 @@ export default function LoginScreen({ navigation }) {
             backgroundColor: username ? "#dee1ec" : "#f5eded",
             paddingLeft: 10,
           }}
-          autoFocus
+          keyboardType="phone-pad"
+          // autoFocus
         />
 
         <Text
@@ -222,7 +255,7 @@ export default function LoginScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {username && password ? null : (
+      {username || password ? null : (
         <View
           style={{
             flex: 2,
@@ -259,6 +292,58 @@ export default function LoginScreen({ navigation }) {
           </TouchableOpacity>
         </View>
       )}
-    </View>
+
+      {username || password ? null : (
+        <View
+          style={{
+            flex: 2,
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              color: "#fff",
+              fontWeight: "bold",
+            }}
+          >
+            Alternatively, Access the app without signing in
+          </Text>
+          <Text
+            style={{
+              color: "#fff",
+              marginTop: 5,
+            }}
+          >
+            (You will not be able to post in forums)
+          </Text>
+          <TouchableOpacity
+            // title="Sign up"
+            onPress={() => handleAnonymousUser()}
+            style={{
+              margin: 30,
+              marginBottom: 0,
+              marginTop: 15,
+              backgroundColor: "#fc5185",
+              borderRadius: 5,
+
+              padding: 10,
+              width: "70%",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                color: "#fff",
+              }}
+            >
+              Proceed as Anonymous User
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
+    </ScrollView>
   );
 }

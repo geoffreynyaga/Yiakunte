@@ -69,10 +69,13 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "storages",
     "imagekit",
+    "tailwind",
+    "theme",
     "accounts",
     "dictionary",
     "forums",
 ]
+TAILWIND_APP_NAME = "theme"
 
 MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",

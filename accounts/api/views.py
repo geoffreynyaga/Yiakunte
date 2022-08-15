@@ -262,9 +262,10 @@ class UserProfileDetailAPIView(RetrieveAPIView):
     authentication_classes = (TokenAuthentication, SessionAuthentication)
     serializer_class = UserProfileSerializer
 
-    lookup_field = "pk"
+    # lookup_field = "pk"
 
     def get_object(self):
+        print(self.request.user, "this should be the request.user")
         return self.request.user.userprofile
 
 

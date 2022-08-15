@@ -18,8 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from accounts.views import HomeView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", HomeView.as_view(), name="home"),
     path("accounts/", include("accounts.urls")),
     path("api/accounts/", include("accounts.api.urls")),
     path("api/forums/", include("forums.api.urls")),
@@ -27,3 +30,4 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += (path("__reload__/", include("django_browser_reload.urls")),)

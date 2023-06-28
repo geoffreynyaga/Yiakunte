@@ -1,0 +1,688 @@
+{
+  "animals": [
+    {
+      "english_name": "cheeter",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/cheeter.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "baboon",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/baboon.jpeg",
+      "audio": ""
+    },
+    {
+      "english_name": "duck",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/duck.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "dog",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/dog.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "insectivorous",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/insectivorous.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "mongoose_white_stripped",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/mongoose_white_stripped.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "dragon_fly",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/dragon_fly.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "spider",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/spider.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "ox",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/ox.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "lion_cab",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/lion_cab.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "gazelle_grant",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/gazelle_grant.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "download",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/download.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "rhino",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/rhino.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "fly",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/fly.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "anti_bear",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/anti_bear.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "locust",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/locust.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "elephant",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/elephant.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "goat_young",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/goat_young.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "quail",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/quail.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "camel",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/camel.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "pocupine",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/pocupine.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "eagle_verreaux",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/eagle_verreaux.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "zebra",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/zebra.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "goat_male1",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/goat_male1.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "_lion",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/_lion.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "eagle_tawny",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/eagle_tawny.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "sheep",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/sheep.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "pig_bush",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/pig_bush.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "mosquito",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/mosquito.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "ostrich",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/ostrich.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hippo",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/hippo.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "donkey",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/donkey.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "butterfly",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/butterfly.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "gazelle_thomson",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/gazelle_thomson.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "buzzard",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/buzzard.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "calf",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/calf.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "mangoose_black_stripped",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/mangoose_black_stripped.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "quiver_tree",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/quiver_tree.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hyena",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/hyena.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "squirrel_white",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/squirrel_white.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "centipede",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/centipede.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "chameleon",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/chameleon.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hyrax",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/hyrax.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "pigeon_rock",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/pigeon_rock.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "sheep1",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/sheep1.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "sparrow",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/sparrow.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "eagle_crowned",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/eagle_crowned.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "anti_fly",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/anti_fly.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hornbill_von_dor_deckons",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/hornbill_von_dor_deckons.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "lizard",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/lizard.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "buffalo",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/buffalo.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "dove",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/dove.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "pigeon",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/pigeon.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "lamb",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/lamb.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "monkey",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/monkey.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "gazelles",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/gazelles.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "bird_white_bellied",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/bird_white_bellied.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hornbill_ground",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/hornbill_ground.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "cattle",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/cattle.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "ox_pecker",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/ox_pecker.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "centipede3",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/centipede3.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "elephant",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/elephant.jpeg",
+      "audio": ""
+    },
+    {
+      "english_name": "mouse_bird",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/mouse_bird.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "giraffe_wild_harbivore",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/giraffe_wild_harbivore.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "snake",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/snake.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "maggot",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/maggot.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "squirrel_black",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/squirrel_black.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hornbill_crowned",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/animals/hornbill_crowned.jpg",
+      "audio": ""
+    }
+  ],
+  "food": [
+    {
+      "english_name": "salt",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/salt.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "liver",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/liver.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "honey",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/honey.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "milk",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/milk.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "food1",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/food1.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "meat",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/meat.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "maize",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/maize.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "food",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/food.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hump_meat",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/hump_meat.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "marrow",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/marrow.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "purified_honey",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/purified_honey.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "water",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/water.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "grinded_meat",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/grinded_meat.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "egg",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/egg.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "images",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/images.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "yellow_honey",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/yellow_honey.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "fat",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/food/fat.jpg",
+      "audio": ""
+    }
+  ],
+  "cultural items": [
+    {
+      "english_name": "honey_guide_greater",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/honey_guide_greater.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "_yiaku_beehive",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/_yiaku_beehive.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "arrow_single_barbed",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/arrow_single_barbed.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hump",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/hump.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "honey",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/honey.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "natural-beeswax",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/natural-beeswax.webp",
+      "audio": ""
+    },
+    {
+      "english_name": "bees",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/bees.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "bee_wax",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/bee_wax.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "hunting",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/hunting.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "arrow_with_oval_point",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/arrow_with_oval_point.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "yakunte-caves",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/yakunte-caves.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "arrow_without_iron_point",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/arrow_without_iron_point.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "honey_comb",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/honey_comb.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "honey_badger",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/honey_badger.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "arrow_for_shooting_human_being",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/arrow_for_shooting_human_being.png",
+      "audio": ""
+    },
+    {
+      "english_name": "honey_guide",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/cultural items/honey_guide.jpg",
+      "audio": ""
+    }
+  ],
+  "family tree": [
+    {
+      "english_name": "group",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/group.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "man_father",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/man_father.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "family",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/family.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "girl",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/girl.png",
+      "audio": ""
+    },
+    {
+      "english_name": "lady",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/lady.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "homestead",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/homestead.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "grandfather",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/grandfather.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "grand_father",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/grand_father.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "couple",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/couple.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "worrier",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/worrier.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "baby",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/baby.jpg",
+      "audio": ""
+    },
+    {
+      "english_name": "boy",
+      "yiakunte": "",
+      "image": "/Users/geoff/Documents/code/Yiakunte/NATIVE2/assets/images/family tree/boy.jpg",
+      "audio": ""
+    }
+  ]
+}

@@ -74,7 +74,7 @@ export default function AuthFlow({ navigation }) {
     <AuthContext.Provider value={{ token, setToken }}>
       <NavigationContainer>
         <AuthStack.Navigator>
-          {isLoading ? (
+          {!isLoading ? (
             // We haven't finished checking for the token yet
             <AuthStack.Screen
               name="Splash"

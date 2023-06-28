@@ -169,6 +169,7 @@ export default function MainPageMenuComponent({ navigation }) {
             }}
           >
             <Ionicons name="library-outline" size={32} color="white" />
+            
 
             <Text style={tailwind("text-center text-white ")}>Dictionary</Text>
           </TouchableOpacity>

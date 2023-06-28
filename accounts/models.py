@@ -51,12 +51,9 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-
     phone_number = PhoneNumberField(unique=True)
 
-    email = models.EmailField(
-        verbose_name="email address", max_length=255, blank=True, null=True
-    )
+    email = models.EmailField(verbose_name="email address", max_length=255, blank=True, null=True)
     first_name = models.CharField(max_length=20, blank=True, null=True)
     last_name = models.CharField(max_length=20, blank=True, null=True)
 
@@ -153,6 +150,7 @@ class UserProfile(models.Model):
         blank=True,
     )
 
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -160,6 +158,7 @@ def create_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     else:
         print("Not first time creation")
+
 
 class SMSToUser(models.Model):
     """Model definition for SMSToUser."""

@@ -157,7 +157,7 @@ sudo nano /etc/nginx/sites-available/Yiakunte
 ```conf
 server {
     listen 80;
-    server_name 20.77.89.20;
+    server_name 10.87.59.20;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
@@ -199,6 +199,3 @@ sudo ufw allow 'Nginx Full'
 ```
 
 http://example.com
-
-
-f

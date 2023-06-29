@@ -17,7 +17,7 @@ const emulator: string = 'http://10.0.2.2:8000';
 const production: string = 'http://20.254.89.252';
 const development: string = 'http://192.168.100.8:8000';
 
-const active_server = emulator;
+const active_server = production;
 
 export const loginAPI = active_server + '/api/accounts/login/';
 export const signUpAPI = active_server + '/api/accounts/signup/';

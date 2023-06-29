@@ -2,7 +2,7 @@
   "expo": {
     "name": "yiakunte",
     "slug": "yiakunte",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "orientation": "portrait",
     "scheme": "com.geoffreynyaga.yiakunte",
     "icon": "./assets/images/icon.png",
@@ -27,7 +27,7 @@
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "versionCode": 15,
+      "versionCode": 16,
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.READ_EXTERNAL_STORAGE",
